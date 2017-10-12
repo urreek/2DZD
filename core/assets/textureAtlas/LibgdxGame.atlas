@@ -1,0 +1,27 @@
+
+LibgdxGame.png
+size: 1024,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+box
+  rotate: false
+  xy: 1, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+grass
+  rotate: false
+  xy: 563, 563
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+player
+  rotate: false
+  xy: 1, 67
+  size: 560, 560
+  orig: 560, 560
+  offset: 0, 0
+  index: -1
