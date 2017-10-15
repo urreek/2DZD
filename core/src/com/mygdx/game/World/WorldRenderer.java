@@ -37,7 +37,7 @@ public class WorldRenderer implements Disposable {
     }
 
     public void render () {
-        camera.setToOrtho(false,Constants.VIEWPORT_WIDTH,Constants.VIEWPORT_HEIGHT * aspectRatio);
+        camera.setToOrtho(false,Constants.VIEWPORT_WIDTH, Constants.VIEWPORT_HEIGHT * aspectRatio);
         worldController.getCameraHelper().applyTo(camera);
         batch.setProjectionMatrix(camera.combined);
         batch.begin();

@@ -16,7 +16,7 @@ uniform vec2 resolution;
 uniform float upScale;
 
 //alpha threshold for our occlusion map
-const float THRESHOLD = 0.95;
+const float THRESHOLD = 0.75;
 
 
 void main(void) {

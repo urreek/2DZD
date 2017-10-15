@@ -3,7 +3,6 @@ package com.mygdx.game.Util;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
@@ -14,7 +13,7 @@ import com.badlogic.gdx.math.Vector3;
 public class Crosshair {
 
     public Crosshair(){
-        Gdx.input.setCursorCatched(true);
+        //Gdx.input.setCursorCatched(true);
     }
 
     public void render (ShapeRenderer shapeRenderer, OrthographicCamera camera) {

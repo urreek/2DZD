@@ -25,7 +25,7 @@ public class CameraHelper {
     public void update (float deltaTime) {
         if (!hasTarget()) return;
         position.x = target.getPosition().x + target.getOrigin().x;
-        position.y = target.getPosition().y + target.getOrigin().y-0.8f*zoom;
+        position.y = target.getPosition().y + target.getOrigin().y;
     }
     public void setPosition (float x, float y) {
         this.position.set(x, y);

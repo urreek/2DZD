@@ -104,10 +104,10 @@ public class Assets implements Disposable, AssetErrorListener {
     }
 
     public class AssetPlayer {
-        public final Animation<TextureRegion> playerDown;
-        public final Animation<TextureRegion> playerLeft;
-        public final Animation<TextureRegion> playerRight;
-        public final Animation<TextureRegion> playerUp;
+        public final Animation playerDown;
+        public final Animation playerLeft;
+        public final Animation playerRight;
+        public final Animation playerUp;
 
         public final TextureRegion playerStandingDown;
         public final TextureRegion playerStandingLeft;
@@ -156,4 +156,14 @@ public class Assets implements Disposable, AssetErrorListener {
         }
     }
 
+    public static void fixBleeding(TextureRegion region) {
+        float x = region.getRegionX();
+        float y = region.getRegionY();
+        float width = region.getRegionWidth();
+        float height = region.getRegionHeight();
+        float invTexWidth = 1f / region.getTexture().getWidth();
+        float invTexHeight = 1f / region.getTexture().getHeight();
+        region.setRegion((x + .5f) * invTexWidth, (y + .5f) * invTexHeight, (x + width - .5f) * invTexWidth, (y + height - .5f) * invTexHeight);
+
+    }
 }

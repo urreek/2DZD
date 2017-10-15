@@ -5,13 +5,13 @@ package com.mygdx.game.Util;
  */
 public class Constants {
     //App width and height
-    public static final int APP_WIDTH = 800;
-    public static final int APP_HEIGHT = 600;
+    public static final int APP_WIDTH = 1024;
+    public static final int APP_HEIGHT = 1024;
 
     // Visible game world is 5 meters wide
-    public static final float VIEWPORT_WIDTH = 10.0f;
+    public static final float VIEWPORT_WIDTH = 30.0f;
     // Visible game world is 5 meters tall
-    public static final float VIEWPORT_HEIGHT = 10.0f;
+    public static final float VIEWPORT_HEIGHT = 30.0f;
 
     // Location of description file for texture atlas
     public static final String TEXTURE_ATLAS_OBJECTS =

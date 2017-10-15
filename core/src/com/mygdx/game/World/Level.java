@@ -1,12 +1,17 @@
 package com.mygdx.game.World;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.Entity.*;
 import com.mygdx.game.Entity.Collider.Collider;
+import com.mygdx.game.Util.CameraHelper;
 import com.mygdx.game.Util.Constants;
+import com.mygdx.game.Util.GraphGenerator;
+import com.mygdx.game.Util.GraphImp;
 
 import java.util.ArrayList;
 
@@ -36,6 +41,7 @@ public class Level {
     }
 
     // objects
+    private GraphImp graph;
     private Player player;
     private ArrayList<Collider> movableObjects;
     private ArrayList<Collider> stationaryObjects;
@@ -101,7 +107,7 @@ public class Level {
                 }
                 // player spawn point
                 else if (BLOCK_TYPE.PLAYER_SPAWNPOINT.sameColor(currentPixel)) {
-                    Player obj = new Player(new Vector2(pixelX, baseHeight), new Vector2(1,1), true, true);
+                    Player obj = new Player(new Vector2(pixelX, baseHeight), new Vector2(1,1), true, true, graph);
                     movableObjects.add(obj);
                     gameObjects.get(Constants.PLAYER_LAYER).add(obj);
                     lights.add(obj.getLight());
@@ -121,6 +127,7 @@ public class Level {
                 }
             }
         }
+        graph = GraphGenerator.generateGraph(this);
         // free memory
         pixmap.dispose();
         Gdx.app.debug(TAG, "level '" + filename + "' loaded");
@@ -179,4 +186,7 @@ public class Level {
         return lights;
     }
 
+    public GraphImp getGraph() {
+        return graph;
+    }
 }

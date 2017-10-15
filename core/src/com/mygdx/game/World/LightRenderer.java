@@ -69,7 +69,7 @@ public class LightRenderer implements Disposable {
 
         ambientShader = createShader(VERT_SRC, Gdx.files.internal("shaders/ambientLight.frag").readString());
 
-        lightSize = 512;
+        lightSize = 1024;
         lightRadius = 1;
         //build frame buffers
         finalFBO = new FrameBuffer(Pixmap.Format.RGBA8888, lightSize, lightSize, false);
@@ -110,6 +110,7 @@ public class LightRenderer implements Disposable {
         if (additive)
             batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
 
+
         for (Light light:lights) {
             renderLight(light);
         }
@@ -123,7 +124,7 @@ public class LightRenderer implements Disposable {
         batch.end();
         camera.setToOrtho(false,Constants.VIEWPORT_WIDTH, Constants.VIEWPORT_HEIGHT * aspectRatio);
         //reset color
-        batch.setShader(ambientShader);
+        batch.setShader(null);
 
         if (additive)
             batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
@@ -225,6 +226,9 @@ public class LightRenderer implements Disposable {
     public void resize (int width, int height)
     {
         aspectRatio = (float)height/(float)width;
+       /* camera.viewportWidth = Constants.VIEWPORT_WIDTH;
+        camera.viewportHeight = Constants.VIEWPORT_HEIGHT * aspectRatio;
+        camera.update();*/
     }
     @Override public void dispose () {
         batch.dispose();
@@ -241,7 +245,6 @@ public class LightRenderer implements Disposable {
             throw new GdxRuntimeException("could not compile shader: " + prog.getLog());
         if (prog.getLog().length() != 0)
             Gdx.app.log("GpuShadows", prog.getLog());
-
         return prog;
     }
 }

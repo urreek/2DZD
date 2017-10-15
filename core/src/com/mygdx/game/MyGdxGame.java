@@ -36,7 +36,8 @@ public class MyGdxGame implements ApplicationListener {
         if (!paused) {
             // Update game world by the time that has passed
             // since last rendered frame.
-            inputHandler.handleInput(Gdx.graphics.getDeltaTime());
+            inputHandler.handleDebugInput(Gdx.graphics.getDeltaTime());
+            //inputHandler.handleInputGame(Gdx.graphics.getDeltaTime());
             worldController.update(Gdx.graphics.getDeltaTime());
             // Sets the clear screen color to: Cornflower Blue
             Gdx.gl.glClearColor(0f,0f,0f,0f);
